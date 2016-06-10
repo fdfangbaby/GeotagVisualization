@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>地图标签可视化平台</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<link type="text/css" rel="stylesheet" href="css/checkbox.css">
+<link type="text/css" rel="stylesheet" href="css/buttons.css">
+<style type="text/css"></style>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDPpCUzbLNdHoUBVzN9ComVjfrTs6ZKGiY&sensor=true"></script>
+<script src="show/js/jquery-1.12.3.js"> </script>
+<script src="show/js/d3.min.js"></script>
+<script src="show/js/markerwithlabel.js"></script>
+<script src="show/js/jquery-ui.js"></script>
+<script type="text/javascript" src="show/js/func.js"> </script>
+</head>
+
+<body>
+<div id="main">
+	<div id="tab" class="tab">
+		<div id="tab-title" class="tab-title" >
+			<ul>
+				<li>
+					<a id="path_click" href=#>基本统计</a>
+				</li>
+				<li><a id="compare_click" href=#>轨迹比较</a></li>
+				<li><a id="all_click" href=#>感兴趣区域</a></li>
+			</ul>
+		</div>
+		<div id="tab-content" class="tab-content-box">
+			<div id="single-path" class="tab-content" style="display:block">
+			<div style="height:60px; text-align:center">
+				<span style="line-height:60px">请选择一辆出租车id</span>
+			</div>
+			<div class="fuzzy-search-div">
+				<input id="fuzzy-search-id" class="fuzzy-search-input">
+			</div>
+			
+			<ul class = "single-path-ul">
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+				<li class = "single-path-li">
+					<label class="demo--label">
+        			<input class="demo--radio" type="radio" name="demo-radio">
+        			<span class="demo--radioInput"></span>
+        			<span class="tab-content-span"></span>
+    				</label>
+				</li>
+			</ul> 
+				<a id="show_single_data_previous_page" class="button button-primary button-rounded button-small">上一页</a>
+				<a id="show_single_data" class="button button-glow button-border button-rounded button-primary">显示</a>
+				<a id="show_single_data_next_page" class="button button-primary button-rounded button-small">下一页</a>
+				
+			</div>
+			<div id="compare-path" class="tab-content" style="display:none">
+				<div style="height:100px; text-align:center">
+				<span style="line-height:100px">请选择要比较的出租车id</span>
+			</div>
+			<ul>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+				<li>
+					<label class="demo--label">
+        			<input id="compare-checkbox" class="demo--radio" type="checkbox" name="demo-checkbox1">
+        			<span class="demo--checkbox demo--radioInput"></span>
+        			<span class="tab-compared-span"></span>
+    				</label>
+				</li>
+			</ul>
+				<a id="show_compared_data_previous_page" class="button button-primary button-rounded button-small">上一页</a>
+				<a id="show_compared_data" class="button button-glow button-border button-rounded button-primary">显示</a>
+				<a id="show_compared_data_next_page" class="button button-primary button-rounded button-small">下一页</a>
+			</div> 
+			<div id="total-path" class="tab-content" style="display:none">
+				<div id="cluster-method-selection" class="cluster-method-selection">
+					<select id="selector" class="cluster-selection">
+						<option value="kmeans">K-Means</option>
+						<option value="dbscan">DBSCAN</option>
+						<option value="agnes">AGNES</option>
+					</select>
+				</div>
+				<div id="statistics_graph" class="statistics-graph">
+				</div>
+			
+				<a id="show_pick_drop_points" class="button button-glow button-border button-rounded button-primary" style="margin-left:120px">显示</a>
+			</div>
+		</div> 
+		
+	</div>
+    <div id="map-canvas" class="map"></div>
+</div>
+</body>
+</html>
