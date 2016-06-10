@@ -22,7 +22,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd"
     <mvc:annotation-driven />  
 
 	
-	<!-- 配置hibernate 的扫描管理范围,并排除com.tianyongwei包中的controller包(属于MVC框架跟hibernate 
+	<!-- test配置hibernate 的扫描管理范围,并排除com.tianyongwei包中的controller包(属于MVC框架跟hibernate 
 		没有关系)，此包都是基于@Controller注解的，所以... -->
 	<context:component-scan base-package="com.cn">
 	</context:component-scan>
